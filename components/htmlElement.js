@@ -28,7 +28,7 @@ export function h2 (text) {
 };
 
 
-// sections / articles ------------------------------------------------------------------------------
+// sections / articles / div------------------------------------------------------------------------------
 export function section (text) {
     let section = document.createElement("h2");
     section.textContent = text;
@@ -39,6 +39,11 @@ export function article (text) {
     let article = document.createElement("h2");
     article.textContent = text;
     return article
+};
+
+export function div () {
+    let div = document.createElement("div");
+    return div
 };
 
 
