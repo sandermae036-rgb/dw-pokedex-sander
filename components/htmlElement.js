@@ -1,3 +1,17 @@
+// header ----------------------------------------------------------------------------------------
+export function header () {
+    let header = document.createElement("header");
+    return header
+};
+
+
+// main ----------------------------------------------------------------------------------------
+export function main () {
+    let main = document.createElement("main");
+    return main
+};
+
+
 // headlines ---------------------------------------------------------------------------------------
 // h1
 export function h1 (text) {
