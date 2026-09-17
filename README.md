@@ -19,6 +19,10 @@ http://127.0.0.1:5500/detail.html?name=ivysaur
 
 Du skal nu "fiske" navnet ud af url'en og fetche data om `ivysaur` og præsentere Pokemonen på siden.
 
+### **HTML filerne**
+HTML-filerne du opretter til projektet skal være stort set tomme. Du skal linke til js-filen for henholdsvis forsiden / listevisningen (index) og detaljesiden. 
+I dokumenteres body skal du oprette en div med id'et "root". Det er på denne div du skal tilføje det dynamiske indhold.
+
 ### **Processen** 
 - Husk at lave en branch til din aflevering.
 - Commit ofte
@@ -57,9 +61,3 @@ Tilføj et søgefelt til index siden, så man ikke skal bladre hen til sin favor
 
 
 ### **Pokemon api - ekstraopgave 4 - infinite scroll**
-
-Tilføj funktionalitet som loader nye Pokemon når du nærmer dig slutningen af de allerede indlæste Pokemon. Følg guiden på MitRTS.
-
-
-
-
