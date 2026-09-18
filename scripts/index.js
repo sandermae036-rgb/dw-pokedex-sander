@@ -102,7 +102,7 @@ function mainInset (data) {
         // article with 
         mainDOM.innerHTML = `
         ${data.results.map(pokemon => `
-                <a href="">
+                <a href="detail.html?id=${extractId(pokemon.url)}">
                     <article>
                         <p>#${extractId(pokemon.url)}</p>
 
