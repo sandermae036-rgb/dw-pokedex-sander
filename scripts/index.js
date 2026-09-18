@@ -102,16 +102,18 @@ function mainInset (data) {
         // article with 
         mainDOM.innerHTML = `
         ${data.results.map(pokemon => `
-                <article>
-                    <p>#${extractId(pokemon.url)}</p>
+                <a href="">
+                    <article>
+                        <p>#${extractId(pokemon.url)}</p>
 
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${extractId(pokemon.url)}.png">
-                    
-                    <h2>
-                        ${pokemon.name}
-                    </h2>
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${extractId(pokemon.url)}.png">
+                        
+                        <h2>
+                            ${pokemon.name}
+                        </h2>
 
-                </article>
+                    </article>
+                </a>
             `).join("")}
             `;
     });        
