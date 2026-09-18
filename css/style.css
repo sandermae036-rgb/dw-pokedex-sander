@@ -5,8 +5,8 @@ body {
 #root {
     max-width: 360px;
     max-height: 640px;
-
     background-color: #DC0A2D;
+    height: 640px;
 }
 
 header {
@@ -36,7 +36,7 @@ h1 {
 /* main --------------------------------------------------- */
 main {
     max-height: 640px;
-    height: 580px;
+    height: 575px;
     margin: 0 0.5rem;
     background-color: #fff;
     border-radius: 1rem;
