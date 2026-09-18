@@ -41,8 +41,9 @@ export function article (text) {
     return article
 };
 
-export function div () {
+export function div (idName) {
     let div = document.createElement("div");
+    div.id = idName;
     return div
 };
 
