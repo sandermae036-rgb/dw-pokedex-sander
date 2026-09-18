@@ -35,9 +35,10 @@ export function section (text) {
     return section
 };
 
-export function article (text) {
+export function article (className, idName) {
     let article = document.createElement("h2");
-    article.textContent = text;
+    article.classList.add(className);
+    article.id = idName;
     return article
 };
 
