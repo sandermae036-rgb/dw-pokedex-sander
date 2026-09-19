@@ -63,7 +63,7 @@ const imgDiv = document.querySelector("#imgHolder");
 
 
 // make an img with pokeball img as src and append in div 
-imgDiv.append(img("../img/Pokeball.png", "pokeball"))
+imgDiv.append(img("./img/Pokeball.png", "pokeball"))
 
 
 
