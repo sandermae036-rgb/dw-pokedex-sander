@@ -58,13 +58,15 @@ function insertHTML(data) {
     console.log(headerDOM);
 
     headerDOM.innerHTML = `
-        <a href="index.html">
-                <i class="fa-solid fa-arrow-left-long"></i>
-        </a>
+        <section>
+            <a href="index.html">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+            </a>
 
-        <h1>${data.name}</h1>
+            <h1>${data.name}</h1>
 
-        <p>${data.id}</p>
+            <p>${data.id}</p>
+        </section>
 
         <section>
             <i class="fa-solid fa-angle-left"></i>
