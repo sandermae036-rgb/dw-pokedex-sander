@@ -62,9 +62,9 @@ function insertHTML(data) {
                 <i class="fa-solid fa-arrow-left-long"></i>
         </a>
 
-        <h1></h1>
+        <h1>${data.name}</h1>
 
-        <p></p>
+        <p>${data.id}</p>
 
         <section>
             <i class="fa-solid fa-angle-left"></i>
@@ -101,10 +101,6 @@ function insertHTML(data) {
     </h2>
 
     <table>
-        <td></td>
-        <tr></tr>
-
-
         <tr>
             <td class="about__weight">
                 <i class="fa-solid fa-weight-hanging"></i>
