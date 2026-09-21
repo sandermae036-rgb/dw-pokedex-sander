@@ -83,7 +83,6 @@ function mainInset (data) {
 
     console.log(data);
 
-
             function extractId (url) {
             return url.slice(0, -1).split("/").pop();
             };
