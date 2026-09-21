@@ -58,24 +58,24 @@ function insertHTML(data) {
     console.log(headerDOM);
 
     headerDOM.innerHTML = `
-        <section>
-            <a href="index.html">
+        <section class="header__top">
+            <a href="index.html" class="header__top--arrowBack">
                     <i class="fa-solid fa-arrow-left-long"></i>
             </a>
 
             <h1>${data.name}</h1>
 
-            <p>${data.id}</p>
+            <p class="header__top--id">${data.id}</p>
         </section>
 
-        <section>
-            <i class="fa-solid fa-angle-left"></i>
+        <section class="imgShowcase">
+            <i class="fa-solid fa-angle-left" class="imgShowcase--previous"></i>
 
-                <div>
+                <div class="imgShowcase__img">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png">
                 </div>
 
-            <i class="fa-solid fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right" class="imgShowcase--next"></i>
         </section>
         `;
 
@@ -128,19 +128,19 @@ function insertHTML(data) {
         </tr>
 
         <tr>
-            <td>
+            <td class="about__ability--weight">
                 <p>
                     Weight
                 </p>
             </td>
 
-            <td>
+            <td class="about__ability--height">
                 <p>
                     Height
                 </p>
             </td>
 
-            <td>
+            <td class="about__ability--moves">
                 <p>
                     Moves
                 </p>
@@ -164,7 +164,7 @@ function insertHTML(data) {
                     <p class="baseStats__${stat.stat.name}">${stat.stat.name}</p>
                 </td>
 
-                <td>
+                <td class="baseStats__${stat.stat.name}--showcase">
                     <p>
                         ${stat.base_stat}
                     </p>
