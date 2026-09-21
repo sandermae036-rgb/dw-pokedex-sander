@@ -1,0 +1,129 @@
+body {
+    background-color: black;
+}
+
+#root {
+    max-width: 360px;
+    max-height: 640px;
+    background-color: #09ff00;
+    height: 640px;
+}
+
+/* header -------------------------------------- */
+/* header top ------------------ */
+header {
+    padding: 1rem;
+}
+
+.header__top {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__top * {
+    align-self: center;
+}
+
+.header__top i {
+    font-size: 1.5rem;
+}
+
+.header__top p {
+    margin-left: auto;
+
+    padding: 0;
+}
+
+
+
+/* img ------------------------ */
+.imgShowcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1fr);
+}
+
+.fa-angle-left {
+    align-self: end;
+}
+
+.fa-angle-right {
+    align-self: end;
+    justify-self: end;
+}
+
+.imgShowcase__img {
+    position: relative;
+}
+
+
+/* main ---------------------------------------------- */
+main {
+    background-color: #fff;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    padding: 3rem 1rem 1rem 1rem;
+}
+
+/* type --------------------------- */
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 1rem;
+}
+
+.types li {
+    /* background-color: ;  */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+
+
+
+/* about --------------------------- */
+.about h2 {
+    text-align: center;
+}
+
+
+
+
+/* about table --------------------- */
+.about table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.about__ability--weight {
+    border-right: 1px solid #000;
+}
+
+.about__ability--height {
+    border-right: 1px solid #000;
+}
+
+.about__ability--moves p {
+    padding: 0;
+}
+
+table .about__top div {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+table P {
+    font-size: 0.7rem;
+}
+
+table td {
+    width: 33%;
+}
+
+
+.about__description {
+    font-size: 0.7rem;
+}
