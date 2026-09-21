@@ -88,9 +88,8 @@ function insertHTML(data) {
     const mainDOM = document.querySelector("main")
     console.log(mainDOM);
 
-    mainDOM.innerHTML =
-        `
-    <ul class="types">
+    mainDOM.innerHTML = `
+       <ul class="types">
     ${data.types.map(function (type) {
             return `<li class="types__${type.type.name}">${type.type.name}</li>`
         }).join("")}
@@ -125,8 +124,8 @@ function insertHTML(data) {
 
             <td class="about__ability">
                     ${data.abilities.map(function (ability) {
-                        return `<p class="about__ability__${ability.ability.name}">${ability.ability.name}</p>`
-                    }).join("")}
+            return `<p class="about__ability__${ability.ability.name}">${ability.ability.name}</p>`
+        }).join("")}
             </td>
         </tr>
 
@@ -150,6 +149,31 @@ function insertHTML(data) {
             </td>
         </tr>
     </table>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti delectus doloribus commodi. Modi ullam et quisquam autem doloremque voluptates recusandae perspiciatis quibusdam doloribus. Ducimus excepturi quis voluptas, quos ex fuga?
+    </p>
+
     </section>
-    `
+
+
+    <section class="baseStats">
+        <table>
+            ${data.stats.map(function (stat) {
+            return `
+            <tr>
+                <td>
+                    <p class="baseStats__${stat.stat.name}">${stat.stat.name}</p>
+                </td>
+
+                <td>
+                    <p>
+                        ${stat.base_stat}
+                    </p>
+                </td>
+            </tr>
+            `
+        }).join(" ")}
+        </table>
+    </section>`
 }
