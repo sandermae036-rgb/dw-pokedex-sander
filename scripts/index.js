@@ -53,26 +53,20 @@ const root = document.querySelector("#root");
 root.append(header())
 const headerElement = document.querySelector("header");
 
+headerElement.innerHTML = `
+    <div id="imgHolder">
+        <img src="./img/Pokeball.png" alt="pokeball">
+    </div>
 
-// make div and append in header
-headerElement.append(div("imgHolder"));
-
-
-const imgDiv = document.querySelector("#imgHolder");
-
-
-
-// make an img with pokeball img as src and append in div 
-imgDiv.append(img("./img/Pokeball.png", "pokeball"))
+    <h1>
+        Pokédex
+    </h1>
+`
 
 
 
-// make an h1 with pok&eacute;dex txt
-headerElement.append(h1("Pokédex"))
 
-
-
-// search --------------------------------------------------
+// search and filter/sort --------------------------------------------------
 
 
 
