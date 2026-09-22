@@ -49,7 +49,7 @@ urlAndFetch(api)
 
 function insertHTML(data) {
     root = document.querySelector("#root");
-    
+
 
     // header ----------------------------------------
     root.append(header());
@@ -71,7 +71,7 @@ function insertHTML(data) {
         </section>
 
         <section class="imgShowcase">
-            <a href="detail.html?id=${data.id -1}" class="prev">
+            <a href="detail.html?id=${data.id - 1}" class="prev">
                 <i class="fa-solid fa-angle-left" class="imgShowcase--previous"></i>
             </a>
 
@@ -79,7 +79,7 @@ function insertHTML(data) {
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png">
                 </div>
 
-            <a href="detail.html?id=${data.id +1}" class="next">
+            <a href="detail.html?id=${data.id + 1}" class="next">
                 <i class="fa-solid fa-angle-right" class="imgShowcase--next"></i>
             </a>
         </section>
@@ -182,6 +182,14 @@ function insertHTML(data) {
                         ${String(stat.base_stat).padStart(3, 0)}
                     </p>
                 </td>
+
+                <td>
+                    <div style="width: 12rem;">
+                        <div style="width:${stat.base_stat / 200 * 100 + "%"};">
+                            &nbsp;
+                        </div>
+                    </div>
+                </td>
             </tr>
             `
     }).join(" ")}
@@ -193,7 +201,7 @@ function insertHTML(data) {
     prevOrNext(data.id)
 }
 
-function prevOrNext (id) {
+function prevOrNext(id) {
     if (id <= 1) {
         const prev = document.querySelector(".prev")
 

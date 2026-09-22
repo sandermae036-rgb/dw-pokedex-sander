@@ -147,11 +147,11 @@ table .about__top div {
     gap: 0.5rem;
 }
 
-table P {
+.about table P {
     font-size: 0.7rem;
 }
 
-table td {
+.about table td {
     width: 33%;
 }
 
@@ -166,9 +166,44 @@ table td {
 .baseStats h2 {
     text-align: center;
     font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.baseStats td p {
+    padding-bottom: 0.5rem;
+    font-size: 0.7rem;
 }
 
 .baseStats table {
     border-collapse: collapse;
     height: 10%;
+}
+
+.baseStats tr td:nth-child(1) {
+    border-right: 1px solid #000;
+    text-align: end;
+    padding-right: 0.5rem;
+}
+
+.baseStats tr td:nth-child(2) {
+    padding-left: 0.5rem;
+}
+
+.baseStats tr td:nth-child(3)>div {
+    background-color: #09ff0050;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.baseStats tr td:nth-child(3)>div>div {
+    background-color: #09ff00;
+}
+
+.baseStats tr td:nth-child(3) div {
+    border-radius: 1rem;
+    height: 10px;
+}
+
+.baseStats tr td:nth-child(3) {
+    max-height: 18px;
 }
