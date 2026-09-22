@@ -67,7 +67,7 @@ function insertHTML(data) {
 
             <h1>${data.name}</h1>
 
-            <p class="header__top--id">#${data.id}</p>
+            <p class="header__top--id">#${String(data.id).padStart(3, 0)}</p>
         </section>
 
         <section class="imgShowcase">
@@ -179,7 +179,7 @@ function insertHTML(data) {
 
                 <td class="baseStats__${stat.stat.name}--showcase">
                     <p>
-                        ${stat.base_stat}
+                        ${String(stat.base_stat).padStart(3, 0)}
                     </p>
                 </td>
             </tr>
@@ -198,7 +198,7 @@ function prevOrNext (id) {
         const prev = document.querySelector(".prev")
 
         prev.style.display = "none";
-    } else if (id == 1351) {
+    } else if (id >= 1025) {
         const next = document.querySelector(".next")
 
         next.style.display = "none";

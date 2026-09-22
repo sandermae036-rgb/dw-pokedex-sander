@@ -17,7 +17,7 @@ header .backgroundPokeball {
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 0;
+    z-index: 1;
 }
 
 /* header top ------------------ */
@@ -58,6 +58,8 @@ header .fa-solid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1fr);
+    position: relative;
+    z-index: 1;
 }
 
 .prev {
