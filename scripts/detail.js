@@ -56,26 +56,34 @@ function insertHTML(data) {
 
     const headerDOM = document.querySelector("header");
     console.log(headerDOM);
+   
 
     headerDOM.innerHTML = `
+        <img class="backgroundPokeball" src="../img/Pokeball.png" alt="pokeball">
+
+
         <section class="header__top">
             <a href="index.html" class="header__top--arrowBack">
-                    <i class="fa-solid fa-arrow-left-long"></i>
+                    <i class="fa-solid fa-arrow-left"></i>
             </a>
 
             <h1>${data.name}</h1>
 
-            <p class="header__top--id">${data.id}</p>
+            <p class="header__top--id">#${data.id}</p>
         </section>
 
         <section class="imgShowcase">
-            <i class="fa-solid fa-angle-left" class="imgShowcase--previous"></i>
+            <a href="detail.html?id=${data.id -1}" class="prev">
+                <i class="fa-solid fa-angle-left" class="imgShowcase--previous"></i>
+            </a>
 
                 <div class="imgShowcase__img">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png">
                 </div>
 
-            <i class="fa-solid fa-angle-right" class="imgShowcase--next"></i>
+            <a href="detail.html?id=${data.id +1}" class="next">
+                <i class="fa-solid fa-angle-right" class="imgShowcase--next"></i>
+            </a>
         </section>
         `;
 
@@ -93,8 +101,8 @@ function insertHTML(data) {
     mainDOM.innerHTML = `
        <ul class="types">
     ${data.types.map(function (type) {
-            return `<li class="types__${type.type.name}">${type.type.name}</li>`
-        }).join("")}
+        return `<li class="types__${type.type.name}">${type.type.name}</li>`
+    }).join("")}
     </ul>
 
     <section class="about">
@@ -103,31 +111,35 @@ function insertHTML(data) {
     </h2>
 
     <table>
-        <tr>
-            <td class="about__weight">
-                <i class="fa-solid fa-weight-hanging"></i>
+        <tr class="about__top">
+            <td class="about__ability--weight">
+                <div>
+                    <i class="fa-solid fa-weight-hanging"></i>
 
-                <p>
-                    ${data.weight + "kg"}
-                </p>
+                    <p> 
+                        ${data.weight + "kg"}
+                    </p>
+                </div>
             </td>
 
-            <td class="about__height">
+            <td class="about__ability--height">
+                <div>
                 <i class="fa-solid fa-ruler-vertical"></i>
 
                 <p>
                     ${data.height + "m"}
                 </p>
+               </div>
             </td>
 
-            <td class="about__ability">
+            <td class="about__ability--moves">
                     ${data.abilities.map(function (ability) {
-            return `<p class="about__ability__${ability.ability.name}">${ability.ability.name}</p>`
-        }).join("")}
+        return `<p>${ability.ability.name}</p>`
+    }).join("")}
             </td>
         </tr>
 
-        <tr>
+        <tr class="about__bottom">
             <td class="about__ability--weight">
                 <p>
                     Weight
@@ -148,17 +160,21 @@ function insertHTML(data) {
         </tr>
     </table>
 
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti delectus doloribus commodi. Modi ullam et quisquam autem doloremque voluptates recusandae perspiciatis quibusdam doloribus. Ducimus excepturi quis voluptas, quos ex fuga?
+    <p class="about__description">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti delectus doloribus commodi.
     </p>
 
     </section>
 
 
     <section class="baseStats">
+        <h2>
+            Base Stats
+        </h2>
+
         <table>
             ${data.stats.map(function (stat) {
-            return `
+        return `
             <tr>
                 <td>
                     <p class="baseStats__${stat.stat.name}">${stat.stat.name}</p>
@@ -171,7 +187,23 @@ function insertHTML(data) {
                 </td>
             </tr>
             `
-        }).join(" ")}
+    }).join(" ")}
         </table>
     </section>`
+
+
+    // function to make the next or prev arrow button hide once the id is 1 or 1351
+    prevOrNext(data.id)
 }
+
+function prevOrNext (id) {
+    if (id <= 1) {
+        const prev = document.querySelector(".prev")
+
+        prev.style.display = "none";
+    } else if (id == 1351) {
+        const next = document.querySelector(".next")
+
+        next.style.display = "none";
+    }
+};

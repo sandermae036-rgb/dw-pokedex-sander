@@ -10,9 +10,26 @@ body {
 }
 
 /* header -------------------------------------- */
+/* pokeball  */
+header .backgroundPokeball {
+    width: 53%;
+  opacity: 0.4;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
 /* header top ------------------ */
 header {
     padding: 1rem;
+    position: relative;
+    height: 182px;
+    color: #fff;
+}
+
+header .fa-solid {
+    color: #fff;
 }
 
 .header__top {
@@ -43,24 +60,34 @@ header {
     grid-template-rows: repeat(1fr);
 }
 
-.fa-angle-left {
+.prev {
     align-self: end;
+    grid-column: 1/2;
 }
 
-.fa-angle-right {
+.next {
     align-self: end;
     justify-self: end;
+    grid-column: 3/4;
 }
 
 .imgShowcase__img {
     position: relative;
+    height: 112px;
+    width: 10rem;
+    grid-column: 2/3
+}
+
+.imgShowcase img {
+    position: absolute;
+    top: 30px;
 }
 
 
 /* main ---------------------------------------------- */
 main {
     background-color: #fff;
-    margin: 0 0.5rem 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     border-radius: 0.5rem;
     padding: 3rem 1rem 1rem 1rem;
 }
@@ -85,6 +112,8 @@ main {
 /* about --------------------------- */
 .about h2 {
     text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -95,6 +124,7 @@ main {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .about__ability--weight {
@@ -126,4 +156,17 @@ table td {
 
 .about__description {
     font-size: 0.7rem;
+}
+
+
+/* base stats -----------------*/
+
+.baseStats h2 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.baseStats table {
+    border-collapse: collapse;
+    height: 10%;
 }
