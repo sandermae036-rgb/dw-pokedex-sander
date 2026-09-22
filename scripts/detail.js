@@ -49,17 +49,15 @@ urlAndFetch(api)
 
 function insertHTML(data) {
     root = document.querySelector("#root");
-    console.log(root);
+    
 
     // header ----------------------------------------
     root.append(header());
 
     const headerDOM = document.querySelector("header");
-    console.log(headerDOM);
-   
 
     headerDOM.innerHTML = `
-        <img class="backgroundPokeball" src="../img/Pokeball.png" alt="pokeball">
+        <img class="backgroundPokeball" src="./img/Pokeball.png" alt="pokeball">
 
 
         <section class="header__top">
@@ -96,7 +94,6 @@ function insertHTML(data) {
     root.append(main())
 
     const mainDOM = document.querySelector("main")
-    console.log(mainDOM);
 
     mainDOM.innerHTML = `
        <ul class="types">

@@ -103,7 +103,7 @@ function mainInset (data) {
         ${data.results.map(pokemon => `
                 <a href="detail.html?id=${extractId(pokemon.url)}">
                     <article>
-                        <p>#${extractId(pokemon.url)}</p>
+                        <p>#${extractId(pokemon.url).padStart(3, 0)}</p>
 
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${extractId(pokemon.url)}.png">
                         
