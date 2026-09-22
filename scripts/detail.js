@@ -174,7 +174,7 @@ function insertHTML(data) {
         return `
             <tr>
                 <td>
-                    <p class="baseStats__${stat.stat.name}">${stat.stat.name}</p>
+                    <p class="baseStats__${stat.stat.name}">${ baseStatConverter(stat.stat.name)}
                 </td>
 
                 <td class="baseStats__${stat.stat.name}--showcase">
@@ -184,7 +184,7 @@ function insertHTML(data) {
                 </td>
 
                 <td>
-                    <div style="width: 12rem;">
+                    <div style="width: 15rem;">
                         <div style="width:${stat.base_stat / 200 * 100 + "%"};">
                             &nbsp;
                         </div>
@@ -199,6 +199,24 @@ function insertHTML(data) {
 
     // function to make the next or prev arrow button hide once the id is 1 or 1351
     prevOrNext(data.id)
+}
+
+function baseStatConverter (stat) {
+    if (stat == "hp") {
+        return stat = "HP"
+    } else if ( stat == "attack") {
+        return stat = "ATK"
+    } else if ( stat == "defense") {
+        return stat = "DEF"
+    } else if ( stat == "special-attack") {
+        return stat = "SATK"
+    } else if ( stat == "special-defense") {
+        return stat = "SDEF"
+    } else if ( stat == "speed") {
+        return stat = "SPD"
+    } else {
+        return stat
+    }
 }
 
 function prevOrNext(id) {
