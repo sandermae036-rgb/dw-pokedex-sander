@@ -13,11 +13,11 @@ body {
 /* pokeball  */
 header .backgroundPokeball {
     width: 53%;
-  opacity: 0.4;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 0;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
 }
 
 /* header top ------------------ */
