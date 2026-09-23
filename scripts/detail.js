@@ -106,7 +106,7 @@ function insertHTML(data) {
     </ul>
 
     <section class="about">
-    <h2>
+    <h2 class="${data.types[0].type.name + "--color"}">
         About
     </h2>
 
@@ -168,7 +168,7 @@ function insertHTML(data) {
 
 
     <section class="baseStats">
-        <h2>
+        <h2 class="${data.types[0].type.name + "--color"}">
             Base Stats
         </h2>
 
@@ -202,22 +202,10 @@ function insertHTML(data) {
 
 
 
-
-
-    // color picker -------------------------------------------------------------------------------------------------------------------
-    let types = document.querySelectorAll(".types li")
-    console.log(types)
-
-    colorPicker(types);
-
     // function to make the next or prev arrow button hide once the id is 1 or 1351 --------------------------------------
     prevOrNext(data.id)
 
 }
-
-function colorPicker() {
-
-};
 
 function baseStatConverter(stat) {
     if (stat == "hp") {

@@ -93,3 +93,7 @@ main a article img {
     position: relative;
     z-index: 1;
 }
+
+header, main {
+    text-transform: capitalize;
+}
