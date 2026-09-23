@@ -22,6 +22,8 @@ import { li } from "../components/htmlElement.js";
 
 
 
+
+
 // url search 
 
 const api = "https://pokeapi.co/api/v2/pokemon/"
@@ -49,6 +51,7 @@ urlAndFetch(api)
 
 function insertHTML(data) {
     root = document.querySelector("#root");
+    root.classList.add(data.types[0].type.name + "--bgcolor")
 
 
     // header ----------------------------------------
@@ -57,7 +60,7 @@ function insertHTML(data) {
     const headerDOM = document.querySelector("header");
 
     headerDOM.innerHTML = `
-        <img class="backgroundPokeball" src="./img/Pokeball.png" alt="pokeball">
+        <img class="backgroundPokeball" src="./img/Pokeball.svg" alt="pokeball">
 
 
         <section class="header__top">
@@ -98,7 +101,7 @@ function insertHTML(data) {
     mainDOM.innerHTML = `
        <ul class="types">
     ${data.types.map(function (type) {
-        return `<li class="types__${type.type.name}">${type.type.name}</li>`
+        return `<li class="types__${type.type.name} ${type.type.name}--bgcolor">${type.type.name}</li>`
     }).join("")}
     </ul>
 
@@ -174,7 +177,7 @@ function insertHTML(data) {
         return `
             <tr>
                 <td>
-                    <p class="baseStats__${stat.stat.name}">${ baseStatConverter(stat.stat.name)}
+                    <p class="baseStats__${stat.stat.name} ${data.types[0].type.name + "--color"}">${baseStatConverter(stat.stat.name)}
                 </td>
 
                 <td class="baseStats__${stat.stat.name}--showcase">
@@ -184,8 +187,8 @@ function insertHTML(data) {
                 </td>
 
                 <td>
-                    <div style="width: 15rem;">
-                        <div style="width:${stat.base_stat / 200 * 100 + "%"};">
+                    <div class="${data.types[0].type.name + "--abgcolor"}" style="width: 15rem;">
+                        <div class="${data.types[0].type.name + "--bgcolor"}" style="width:${stat.base_stat / 200 * 100 + "%"};">
                             &nbsp;
                         </div>
                     </div>
@@ -197,27 +200,42 @@ function insertHTML(data) {
     </section>`
 
 
-    // function to make the next or prev arrow button hide once the id is 1 or 1351
+
+
+
+
+    // color picker -------------------------------------------------------------------------------------------------------------------
+    let types = document.querySelectorAll(".types li")
+    console.log(types)
+
+    colorPicker(types);
+
+    // function to make the next or prev arrow button hide once the id is 1 or 1351 --------------------------------------
     prevOrNext(data.id)
+
 }
 
-function baseStatConverter (stat) {
+function colorPicker() {
+
+};
+
+function baseStatConverter(stat) {
     if (stat == "hp") {
         return stat = "HP"
-    } else if ( stat == "attack") {
+    } else if (stat == "attack") {
         return stat = "ATK"
-    } else if ( stat == "defense") {
+    } else if (stat == "defense") {
         return stat = "DEF"
-    } else if ( stat == "special-attack") {
+    } else if (stat == "special-attack") {
         return stat = "SATK"
-    } else if ( stat == "special-defense") {
+    } else if (stat == "special-defense") {
         return stat = "SDEF"
-    } else if ( stat == "speed") {
+    } else if (stat == "speed") {
         return stat = "SPD"
     } else {
         return stat
     }
-}
+};
 
 function prevOrNext(id) {
     if (id <= 1) {

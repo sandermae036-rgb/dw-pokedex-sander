@@ -55,7 +55,7 @@ const headerElement = document.querySelector("header");
 
 headerElement.innerHTML = `
     <div id="imgHolder">
-        <img src="./img/Pokeball.png" alt="pokeball">
+        <img src="./img/Pokeball.svg" alt="pokeball">
     </div>
 
     <h1>
