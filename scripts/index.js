@@ -30,28 +30,33 @@ let offset = 0;
 
 let limit = 48;
 
-// pokemonArray = [];
+let pokemonArray = [];
 
-const apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=" + limit;
-
-async function getApi(url) {
+async function getApi(offset) {
     try {
-        const api = await fetch(url);
+
+        const apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=" + limit;
+
+        const api = await fetch(apiUrl);
 
         const jsonApi = await api.json();
 
-        mainInset(jsonApi.results)
+        pokemonArray = [...pokemonArray, ...jsonApi.results]
+
+        mainInset(pokemonArray)
     } catch (error) {
 
     }
 }
 
-getApi(apiUrl)
+getApi(offset)
 
 
 
 // html inserts -------------------------------------------------------------------------------------------------
 const root = document.querySelector("#root");
+
+root.innerHTML = ""
 
 // header ------------------------------------------------------------------------------
 // make header and append in root 
@@ -59,41 +64,34 @@ root.append(header())
 const headerElement = document.querySelector("header");
 
 headerElement.innerHTML = `
-    <div id="imgHolder">
-        <img src="./img/Pokeball.svg" alt="pokeball">
-    </div>
+<div id="imgHolder">
+    <img src="./img/Pokeball.svg" alt="pokeball">
+</div>
 
-    <h1>
-        Pokédex
-    </h1>
+<h1>
+    Pokédex
+</h1>
 `
-
-
-
 
 // search and filter/sort --------------------------------------------------
 
 
+// main append ---------------------------------------------------------------------------------
+
+root.append(main());
+const mainDOM = document.querySelector("main");
+
 
 // main / pokeindex ---------------------------------------------------------------------------
 function mainInset(data) {
-    root.append(main());
-    const mainDOM = document.querySelector("main");
 
-    console.log(data);
+    mainDOM.innerHTML = ""
 
     function extractId(url) {
         return url.slice(0, -1).split("/").pop();
     };
 
-    data.forEach(function (pokemon) {
-
-        // find the current pokemons url
-        let url = pokemon.url;
-
-        let id = url.slice(0, -1).split("/").pop();
-
-        let pokemonfrontImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + id + ".png";
+    data.forEach(function () {
 
         // article with 
         mainDOM.innerHTML = `
@@ -102,7 +100,7 @@ function mainInset(data) {
                     <article>
                         <p>#${extractId(pokemon.url).padStart(3, "0")}</p>
 
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${extractId(pokemon.url)}.png">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${extractId(pokemon.url)}.png" alt="${pokemon.name}" loading="lazy">
                         
                         <h2>
                             ${pokemon.name}
@@ -115,17 +113,19 @@ function mainInset(data) {
     });
 
     let fithLastElement = document.querySelector("main a:nth-last-of-type(5)");
-    console.log(fithLastElement);
 
-    let observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                console.log("intersecting")
-            }
-        });
-    });
 
     observer.observe(fithLastElement);
 
 
 }
+
+let observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+            offset = offset + 48;
+            getApi(offset)
+
+        }
+    });
+});
