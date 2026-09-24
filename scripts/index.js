@@ -26,8 +26,13 @@ import { li } from "../components/htmlElement.js";
 
 
 // api fetching --------------------------
-const apiUrl = "https://pokeapi.co/api/v2/pokemon";
+let offset = 0;
 
+let limit = 48;
+
+// pokemonArray = [];
+
+const apiUrl = "https://pokeapi.co/api/v2/pokemon?offset=" + offset + "&limit=" + limit;
 
 async function getApi(url) {
     try {
@@ -35,7 +40,7 @@ async function getApi(url) {
 
         const jsonApi = await api.json();
 
-        mainInset(jsonApi)
+        mainInset(jsonApi.results)
     } catch (error) {
 
     }
@@ -71,22 +76,20 @@ headerElement.innerHTML = `
 
 
 // main / pokeindex ---------------------------------------------------------------------------
-function mainInset (data) {
+function mainInset(data) {
     root.append(main());
     const mainDOM = document.querySelector("main");
 
     console.log(data);
 
-            function extractId (url) {
-            return url.slice(0, -1).split("/").pop();
-            };
+    function extractId(url) {
+        return url.slice(0, -1).split("/").pop();
+    };
 
-    data.results.forEach(function (pokemon) {
-        
+    data.forEach(function (pokemon) {
+
         // find the current pokemons url
         let url = pokemon.url;
-
-        let name = pokemon.name;
 
         let id = url.slice(0, -1).split("/").pop();
 
@@ -94,7 +97,7 @@ function mainInset (data) {
 
         // article with 
         mainDOM.innerHTML = `
-        ${data.results.map(pokemon => `
+        ${data.map(pokemon => `
                 <a href="detail.html?id=${extractId(pokemon.url)}">
                     <article>
                         <p>#${extractId(pokemon.url).padStart(3, "0")}</p>
@@ -109,6 +112,20 @@ function mainInset (data) {
                 </a>
             `).join("")}
             `;
-    });        
-    
+    });
+
+    let fithLastElement = document.querySelector("main a:nth-last-of-type(5)");
+    console.log(fithLastElement);
+
+    let observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                console.log("intersecting")
+            }
+        });
+    });
+
+    observer.observe(fithLastElement);
+
+
 }

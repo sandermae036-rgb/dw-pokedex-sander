@@ -46,18 +46,19 @@ main {
     gap: 0.5rem;
     overflow: hidden;
     overflow: scroll;
+    box-shadow: #7f7f7f 0px 0px 10px inset;
 }
 
 main a article {
-    box-shadow: #3c3c3c 0px 0px 3px;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 1rem;
+    box-shadow: #797979 0px 0px 2px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 1rem;
 }
 
 main a article::before {
-    content:"";
+    content: "";
     position: absolute;
     width: 100%;
     height: 50%;
@@ -69,9 +70,11 @@ main a article::before {
 }
 
 main a article p {
+    opacity: 0.6;
     text-align: end;
     padding: 0;
     margin-right: 0.3rem;
+    font-size: 0.8rem;
 }
 
 
@@ -82,7 +85,7 @@ main a article h2 {
     z-index: 2;
     background-color: #E0E0E0;
     border-radius: 1rem 1rem 0 0;
-    position:absolute;
+    position: absolute;
     width: 100%;
     padding-bottom: 0.5rem;
     font-weight: lighter;
@@ -95,6 +98,7 @@ main a article img {
     z-index: 1;
 }
 
-header, main {
+header,
+main {
     text-transform: capitalize;
 }
