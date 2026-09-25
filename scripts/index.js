@@ -1,26 +1,8 @@
 // imports ------------------------------------------------------------------------------------------------------
 // html element making -------------------------------
-import { header } from "../components/htmlElement.js";
+import { article, header } from "../components/htmlElement.js";
 
 import { main } from "../components/htmlElement.js";
-
-import { h1 } from "../components/htmlElement.js";
-
-import { h2 } from "../components/htmlElement.js";
-
-import { p } from "../components/htmlElement.js";
-
-import { img } from "../components/htmlElement.js";
-
-import { article } from "../components/htmlElement.js";
-
-import { section } from "../components/htmlElement.js";
-
-import { div } from "../components/htmlElement.js";
-
-import { ul } from "../components/htmlElement.js";
-
-import { li } from "../components/htmlElement.js";
 
 
 
@@ -51,14 +33,12 @@ async function getApi(offset) {
 
 getApi(offset)
 
-
-
 // html inserts -------------------------------------------------------------------------------------------------
 const root = document.querySelector("#root");
 
 root.innerHTML = ""
 
-// header ------------------------------------------------------------------------------
+// header --------------------------------------------------------------------------------------------------
 // make header and append in root 
 root.append(header())
 const headerElement = document.querySelector("header");
@@ -71,9 +51,28 @@ headerElement.innerHTML = `
 <h1>
     Pokédex
 </h1>
+
+
+
+<section class="search">
+    <input type="text" id="search" placeholder="Search for a pokemon">
+</section>
 `
 
-// search and filter/sort --------------------------------------------------
+// search and filter/sort ----------------------------------------------------------------------
+
+search.addEventListener("keyup", searchForPokemon);
+
+
+
+
+
+
+
+
+
+
+
 
 
 // main append ---------------------------------------------------------------------------------
@@ -102,9 +101,7 @@ function mainInset(data) {
 
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${extractId(pokemon.url)}.png" alt="${pokemon.name}" loading="lazy">
                         
-                        <h2>
-                            ${pokemon.name}
-                        </h2>
+                        <h2>${pokemon.name}</h2>
 
                     </article>
                 </a>
@@ -113,6 +110,7 @@ function mainInset(data) {
     });
 
     let fithLastElement = document.querySelector("main a:nth-last-of-type(5)");
+    console.log(fithLastElement);
 
 
     observer.observe(fithLastElement);
@@ -120,6 +118,9 @@ function mainInset(data) {
 
 }
 
+
+
+// observer for infinite scroll ------------------------------------------------------------------------------------
 let observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -129,3 +130,47 @@ let observer = new IntersectionObserver(function (entries) {
         }
     });
 });
+
+
+
+// search function ------------------------------------------------------------------------------------------------------
+function searchForPokemon(event) {
+    console.log("kfw");
+
+    // find every h2 inside article inside an anchor inside main
+    const pokemonH2 = document.querySelectorAll("main a article h2");
+
+    // for each h2 textcontent
+    pokemonH2.forEach(function (h2) {
+
+
+
+        let search = document.querySelector(".search #search").value;
+        console.log(search);
+
+        let h2TextContent = h2.textContent
+        console.log(h2TextContent);
+
+        console.log(h2TextContent[0]);
+        
+
+        // if the value inside the input calling this function is not the same as the text content
+        if (search == "") {
+            console.log("nothing")
+            h2.parentElement.parentElement.classList.remove("displayNone")
+
+        } else if (search == h2.textContent) {
+            h2.parentElement.parentElement.classList.remove("displayNone")
+
+        } else if (search != h2.textContent) {
+            h2.parentElement.parentElement.classList.add("displayNone")
+
+        }
+
+
+
+        // give class display none
+
+    });
+
+}

@@ -55,6 +55,7 @@ main a article {
   overflow: hidden;
   position: relative;
   padding-bottom: 1rem;
+  max-width: 107px;
 }
 
 main a article::before {
