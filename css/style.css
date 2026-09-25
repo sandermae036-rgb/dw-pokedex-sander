@@ -6,13 +6,21 @@ body {
     max-width: 360px;
     max-height: 640px;
     background-color: #DC0A2D;
-    height: 640px;
+    height: 800px;
 }
 
 header {
     color: #fff;
-    display: flex;
     padding: 1rem 2rem;
+}
+
+header .top {
+    display: flex;
+}
+
+header #search {
+    margin-top: 1rem;
+    width: 100%;
 }
 
 #imgHolder {
@@ -99,7 +107,10 @@ main a article img {
     z-index: 1;
 }
 
-header,
+header, #search {
+    
+}
+
 main {
     text-transform: capitalize;
 }

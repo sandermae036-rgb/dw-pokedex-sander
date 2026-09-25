@@ -44,6 +44,7 @@ root.append(header())
 const headerElement = document.querySelector("header");
 
 headerElement.innerHTML = `
+<section class="top">
 <div id="imgHolder">
     <img src="./img/Pokeball.svg" alt="pokeball">
 </div>
@@ -51,6 +52,7 @@ headerElement.innerHTML = `
 <h1>
     Pokédex
 </h1>
+</section>
 
 
 
@@ -152,7 +154,7 @@ function searchForPokemon(event) {
         console.log(h2TextContent);
 
         console.log(h2TextContent[0]);
-        
+
 
         // if the value inside the input calling this function is not the same as the text content
         if (search == "") {
